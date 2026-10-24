@@ -1,0 +1,239 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '17.0'
+
+target 'VisaMOTionAi' do
+  config = use_native_modules!
+
+  # React Native dependencies
+  use_react_native!(:path => config["react-native"])
+
+  # Pods for VisaMOTionAi
+  target 'VisaMOTionAiTests' do
+    inherit! :complete
+  end
+
+  # React Native dependencies
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  pod 'Permission-Notifications', :path => "#{permissions_path}/Notifications"
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
+  pod 'Permission-PhotoLibrary', :path => "#{permissions_path}/PhotoLibrary"
+  pod 'Permission-Microphone', :path => "#{permissions_path}/Microphone"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+
+  # WebView
+  pod 'ReactNativeWebView', :path => '../node_modules/react-native-webview/ios'
+
+  # Vector Icons
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons/ios'
+
+  # File Picker
+  pod 'RNDocumentPicker', :path => '../node_modules/react-native-document-picker/ios'
+
+  # Image Picker
+  pod 'RNImagePicker', :path => '../node_modules/react-native-image-picker/ios'
+
+  # Camera Roll
+  pod 'RNCameraRoll', :path => '../node_modules/@react-native-camera-roll/camera-roll/ios'
+
+  # Share
+  pod 'RNShare', :path => '../node_modules/react-native-share/ios'
+
+  # FS
+  pod 'RNFS', :path => '../node_modules/react-native-fs/ios'
+
+  # Async Storage
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-async-storage/async-storage/ios'
+
+  # NetInfo
+  pod 'RNCNetInfo', :path => '../node_modules/@react-native-community/netinfo/ios'
+
+  # Clipboard
+  pod 'RNClipboard', :path => '../node_modules/@react-native-clipboard/clipboard/ios'
+
+  # Safe Area Context
+  pod 'RNSafeAreaContext', :path => '../node_modules/react-native-safe-area-context/ios'
+
+  # Gesture Handler
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler/ios'
+
+  # Reanimated
+  pod 'RNReanimated', :path => '../node_modules/react-native-reanimated/ios'
+
+  # Screens
+  pod 'RNScreens', :path => '../node_modules/react-native-screens/ios'
+
+  # Toast
+  pod 'RNToast', :path => '../node_modules/react-native-toast-message/ios'
+
+  # OneSignal
+  pod 'OneSignalXCFramework', :path => '../node_modules/react-native-onesignal/ios'
+
+  # Splash Screen
+  pod 'RNSplashScreen', :path => '../node_modules/react-native-splash-screen/ios'
+
+  # Status Bar Height
+  pod 'RNStatusBarHeight', :path => '../node_modules/react-native-status-bar-height/ios'
+
+  # Device Info
+  pod 'RNDeviceInfo', :path => '../node_modules/react-native-device-info/ios'
+
+  # Keychain
+  pod 'RNKeychain', :path => '../node_modules/react-native-keychain/ios'
+
+  # Localize
+  pod 'RNLocalize', :path => '../node_modules/react-native-localize/ios'
+
+  # Biometrics
+  pod 'RNBiometrics', :path => '../node_modules/react-native-biometrics/ios'
+
+  # Google Sign In
+  pod 'RNGoogleSignin', :path => '../node_modules/@react-native-google-signin/google-signin/ios'
+
+  # Worklets
+  pod 'RNWorklets', :path => '../node_modules/react-native-worklets/ios'
+
+  # SVG
+  pod 'RNSVG', :path => '../node_modules/react-native-svg/ios'
+
+  # URL Polyfill
+  pod 'RNURLPolyfill', :path => '../node_modules/react-native-url-polyfill/ios'
+
+  # Config
+  pod 'RNConfig', :path => '../node_modules/react-native-config/ios'
+
+  # Masked View
+  pod 'RNMaskedView', :path => '../node_modules/@react-native-masked-view/masked-view/ios'
+
+  # Slider
+  pod 'RNSlider', :path => '../node_modules/@react-native-community/slider/ios'
+
+  # Contacts
+  pod 'RNContacts', :path => '../node_modules/react-native-contacts/ios'
+
+  # Modal
+  pod 'RNModal', :path => '../node_modules/react-native-modal/ios'
+
+  # Linear Gradient
+  pod 'RNLinearGradient', :path => '../node_modules/react-native-linear-gradient/ios'
+
+  # Heic2Any
+  pod 'RNHeic2Any', :path => '../node_modules/heic2any/ios'
+
+  # Spark MD5
+  pod 'RNSparkMD5', :path => '../node_modules/spark-md5/ios'
+
+  # Nano ID
+  pod 'RNNanoID', :path => '../node_modules/nanoid/ios'
+
+  # Use Debounce
+  pod 'RNUseDebounce', :path => '../node_modules/use-debounce/ios'
+
+  # Zod
+  pod 'RNZod', :path => '../node_modules/zod/ios'
+
+  # Zustand
+  pod 'RNZustand', :path => '../node_modules/zustand/ios'
+
+  # Axios
+  pod 'RNAxios', :path => '../node_modules/axios/ios'
+
+  # Lodash
+  pod 'RNLodash', :path => '../node_modules/lodash-es/ios'
+
+  # Fuse.js
+  pod 'RNFuse', :path => '../node_modules/fuse.js/ios'
+
+  # Emoji Picker
+  pod 'RNEmojiPicker', :path => '../node_modules/emoji-picker-react/ios'
+
+  # HTML to Image
+  pod 'RNHTMLToImage', :path => '../node_modules/html-to-image/ios'
+
+  # IDB Keyval
+  pod 'RNIDBKeyval', :path => '../node_modules/idb-keyval/ios'
+
+  # Markdown to TXT
+  pod 'RNMarkdownToTxt', :path => '../node_modules/markdown-to-txt/ios'
+
+  # Mermaid
+  pod 'RNMermaid', :path => '../node_modules/mermaid/ios'
+
+  # Node Fetch
+  pod 'RNNodeFetch', :path => '../node_modules/node-fetch/ios'
+
+  # OpenAPI Client
+  pod 'RNOpenAPIClient', :path => '../node_modules/openapi-client-axios/ios'
+
+  # React Router DOM
+  pod 'RNReactRouterDOM', :path => '../node_modules/react-router-dom/ios'
+
+  # Rehype Highlight
+  pod 'RNRehypeHighlight', :path => '../node_modules/rehype-highlight/ios'
+
+  # Rehype Katex
+  pod 'RNRehypeKatex', :path => '../node_modules/rehype-katex/ios'
+
+  # Remark Breaks
+  pod 'RNRemarkBreaks', :path => '../node_modules/remark-breaks/ios'
+
+  # Remark GFM
+  pod 'RNRemarkGFM', :path => '../node_modules/remark-gfm/ios'
+
+  # Remark Math
+  pod 'RNRemarkMath', :path => '../node_modules/remark-math/ios'
+
+  # RT Client
+  pod 'RNRTClient', :path => '../node_modules/rt-client/ios'
+
+  # Sass
+  pod 'RNSass', :path => '../node_modules/sass/ios'
+
+  # Spark MD5
+  pod 'RNSparkMD5', :path => '../node_modules/spark-md5/ios'
+
+  # Webpack
+  pod 'RNWebpack', :path => '../node_modules/webpack/ios'
+
+end
+
+# Post Install Scripts
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    if target.name == "VisaMOTionAi"
+      target.build_configurations.each do |config|
+        # Enable Objective-C exceptions
+        config.build_settings['GCC_ENABLE_OBJC_EXCEPTIONS'] = 'YES'
+        
+        # Enable ARC
+        config.build_settings['CLANG_ENABLE_OBJC_ARC'] = 'YES'
+        
+        # Enable Objective-C GC
+        config.build_settings['GCC_ENABLE_OBJC_GC'] = 'supported'
+        
+        # Set iOS deployment target
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'
+        
+        # Enable bitcode
+        config.build_settings['ENABLE_BITCODE'] = 'NO'
+        
+        # Set architectures
+        config.build_settings['ARCHS'] = '$(ARCHS_STANDARD)'
+        
+        # Set only active architectures
+        config.build_settings['ONLY_ACTIVE_ARCHS'] = 'YES'
+        
+        # Set build active architecture only
+        config.build_settings['BUILD_ACTIVE_ARCHITECTURE_ONLY'] = 'YES'
+        
+        # Set SDK root
+        config.build_settings['SDKROOT'] = 'iphoneos'
+        
+        # Set code signing
+        config.build_settings['CODE_SIGN_IDENTITY'] = 'iPhone Developer'
+        config.build_settings['PROVISIONING_PROFILE_SPECIFIER'] = ''
+        config.build_settings['CODE_SIGN_STYLE'] = 'Automatic'
+        config.build_settings['DEVELOPMENT_TEAM'] = ''
+      end
+    end
+  end
+end

@@ -1,0 +1,139 @@
+{
+  "name": "VisaMOTionAi",
+  "displayName": "VisaMOTionAi",
+  "expo": {
+    "name": "VisaMOTionAi",
+    "slug": "visamotionai",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#6366F1"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yourcompany.visamotionai",
+      "buildNumber": "1.0.0",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Allow VisaMOTionAi to access your camera to take photos for chat",
+        "NSPhotoLibraryUsageDescription": "Allow VisaMOTionAi to access your photos to share in chat",
+        "NSPhotoLibraryAddUsageDescription": "Allow VisaMOTionAi to save photos from chat",
+        "NSMicrophoneUsageDescription": "Allow VisaMOTionAi to access your microphone for voice input",
+        "NSLocationWhenInUseUsageDescription": "Allow VisaMOTionAi to access your location for location-based services",
+        "NSUserTrackingUsageDescription": "This identifier will be used to deliver personalized ads to you",
+        "UIBackgroundModes": [
+          "fetch",
+          "remote-notification"
+        ],
+        "UIApplicationSceneManifest": {
+          "UIApplicationSupportsMultipleScenes": false,
+          "UISceneConfigurations": [
+            {
+              "UISceneConfigurationName": "Default Configuration",
+              "UISceneDelegateClassName": "$(PRODUCT_MODULE_NAME).SceneDelegate",
+              "UISceneStoryboardFile": "LaunchScreen"
+            }
+          ]
+        },
+        "UISupportedInterfaceOrientations": [
+          "UIInterfaceOrientationPortrait",
+          "UIInterfaceOrientationLandscapeLeft",
+          "UIInterfaceOrientationLandscapeRight"
+        ],
+        "UISupportedInterfaceOrientations~ipad": [
+          "UIInterfaceOrientationPortrait",
+          "UIInterfaceOrientationPortraitUpsideDown",
+          "UIInterfaceOrientationLandscapeLeft",
+          "UIInterfaceOrientationLandscapeRight"
+        ]
+      },
+      "entitlements": {
+        "aps-environment": "production",
+        "com.apple.developer.apple-signin": ["Default"],
+        "com.apple.developer.associated-domains": [
+          "applinks:app.nextchat.club",
+          "applinks:visamotionai.com"
+        ],
+        "com.apple.developer.background-modes": [
+          "fetch",
+          "remote-notification"
+        ],
+        "com.apple.developer.icloud-container-identifiers": [
+          "iCloud.com.yourcompany.visamotionai"
+        ],
+        "com.apple.developer.icloud-container-environment": "Production",
+        "com.apple.developer.icloud-services": [
+          "CloudDocuments",
+          "CloudKit"
+        ],
+        "com.apple.developer.in-app-payments": [
+          "merchant.com.yourcompany.visamotionai"
+        ],
+        "com.apple.developer.notification-center-service": true,
+        "com.apple.developer.siri": true,
+        "com.apple.security.application-groups": [
+          "group.com.yourcompany.visamotionai"
+        ],
+        "keychain-access-groups": [
+          "$(AppIdentifierPrefix)com.yourcompany.visamotionai"
+        ]
+      }
+    },
+    "android": {
+      "package": "com.yourcompany.visamotionai",
+      "versionCode": 1,
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "RECORD_AUDIO",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "INTERNET",
+        "ACCESS_NETWORK_STATE",
+        "RECEIVE_BOOT_COMPLETED",
+        "VIBRATE",
+        "WAKE_LOCK",
+        "USE_FINGERPRINT",
+        "USE_BIOMETRIC"
+      ],
+      "config": {
+        "googleSignIn": {
+          "apiKey": "YOUR_GOOGLE_API_KEY",
+          "certificateHash": "YOUR_CERTIFICATE_HASH"
+        }
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "react-native-webview",
+      "react-native-vector-icons",
+      "react-native-gesture-handler",
+      "react-native-reanimated",
+      "react-native-screens",
+      "react-native-safe-area-context",
+      "react-native-permissions",
+      "react-native-document-picker",
+      "react-native-image-picker",
+      "react-native-share",
+      "react-native-fs",
+      "react-native-async-storage",
+      "react-native-netinfo",
+      "react-native-clipboard",
+      "react-native-onesignal",
+      "react-native-splash-screen",
+      "react-native-status-bar-height",
+      "react-native-toast-message"
+    ]
+  }
+}

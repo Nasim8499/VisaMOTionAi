@@ -1,0 +1,7 @@
+# Fastlane Pluginfile for VisaMOTionAi
+
+# Add plugins here
+# Example:
+# plugin 'fastlane-plugin-firebase_app_distribution'
+# plugin 'fastlane-plugin-firebase_crashlytics'
+# plugin 'fastlane-plugin-sentry'

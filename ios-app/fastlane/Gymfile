@@ -1,0 +1,17 @@
+# Fastlane Gymfile for VisaMOTionAi
+
+# For more information about this file, see:
+# https://docs.fastlane.tools/actions/gym/
+
+# Scheme configuration
+schemes({
+  "VisaMOTionAi" => {
+    :build => {
+      :configuration => "Release"
+    },
+    :archive => {
+      :configuration => "Release",
+      :export_method => "app-store"
+    }
+  }
+})

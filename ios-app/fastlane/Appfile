@@ -1,0 +1,9 @@
+# Fastlane configuration for VisaMOTionAi
+
+# App Store Connect API key
+app_identifier("com.yourcompany.visamotionai")
+apple_id("your_apple_id@example.com")
+team_id("YOUR_TEAM_ID")
+
+# For more information about this file, see:
+# https://docs.fastlane.tools/advanced/fastlane_environment/#appfile

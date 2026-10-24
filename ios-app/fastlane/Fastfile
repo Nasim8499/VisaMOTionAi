@@ -1,0 +1,126 @@
+# Fastlane configuration for VisaMOTionAi
+
+platform :ios do
+  desc "Build and upload to TestFlight"
+  lane :beta do
+    # Build the app
+    build_app(
+      scheme: "VisaMOTionAi",
+      workspace: "VisaMOTionAi.xcworkspace",
+      configuration: "Release",
+      export_method: "app-store",
+      output_directory: "build",
+      output_name: "VisaMOTionAi.ipa"
+    )
+
+    # Upload to TestFlight
+    upload_to_testflight(
+      ipa: "build/VisaMOTionAi.ipa",
+      skip_waiting_for_build_processing: true,
+      skip_metadata: true
+    )
+  end
+
+  desc "Build and upload to App Store"
+  lane :release do
+    # Increment build number
+    increment_build_number(
+      build_number: get_build_number + 1
+    )
+
+    # Build the app
+    build_app(
+      scheme: "VisaMOTionAi",
+      workspace: "VisaMOTionAi.xcworkspace",
+      configuration: "Release",
+      export_method: "app-store",
+      output_directory: "build",
+      output_name: "VisaMOTionAi.ipa"
+    )
+
+    # Upload to App Store
+    deliver(
+      ipa: "build/VisaMOTionAi.ipa",
+      price_tier: 0, # Free app
+      skip_binary_upload: false,
+      skip_metadata: false,
+      skip_screenshots: true,
+      force: true
+    )
+  end
+
+  desc "Run tests"
+  lane :test do
+    run_tests(
+      workspace: "VisaMOTionAi.xcworkspace",
+      scheme: "VisaMOTionAi",
+      devices: [
+        "iPhone 15",
+        "iPhone 15 Plus",
+        "iPhone 15 Pro",
+        "iPhone 15 Pro Max",
+        "iPad Pro (12.9-inch) (6th generation)"
+      ]
+    )
+  end
+
+  desc "Create screenshots"
+  lane :screenshots do
+    capture_screenshots(
+      workspace: "VisaMOTionAi.xcworkspace",
+      scheme: "VisaMOTionAi",
+      devices: [
+        "iPhone 15 Pro",
+        "iPhone 15 Pro Max",
+        "iPad Pro (12.9-inch) (6th generation)"
+      ],
+      languages: ["en-US"],
+      output_directory: "fastlane/screenshots"
+    )
+  end
+
+  desc "Generate app icons"
+  lane :icons do
+    # Generate app icons from source
+    # Requires icon.png in fastlane directory
+    generate_app_icons(
+      source: "fastlane/icon.png",
+      output_directory: "ios/VisaMOTionAi/Images.xcassets/AppIcon.appiconset",
+      force: true
+    )
+  end
+
+  desc "Generate splash screens"
+  lane :splash do
+    # Generate splash screens from source
+    # Requires splash.png in fastlane directory
+    generate_splash_screens(
+      source: "fastlane/splash.png",
+      output_directory: "ios/VisaMOTionAi/Images.xcassets/LaunchScreen.imageset",
+      force: true
+    )
+  end
+
+  desc "Clean build artifacts"
+  lane :clean do
+    sh "rm -rf ios/build"
+    sh "rm -rf ios/Pods"
+    sh "rm -rf ios/VisaMOTionAi.xcworkspace"
+    sh "pod deintegrate ios/"
+  end
+
+  desc "Setup development environment"
+  lane :setup do
+    # Install CocoaPods
+    sh "cd ios && pod install && cd .."
+    
+    # Create environment file
+    sh "cp .env.example .env"
+    
+    # Install dependencies
+    sh "yarn install"
+  end
+end
+
+# For more information about Fastlane, see:
+# https://docs.fastlane.tools/

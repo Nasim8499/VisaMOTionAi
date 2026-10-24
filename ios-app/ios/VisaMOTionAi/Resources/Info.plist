@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>VisaMOTionAi</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>visamotionai</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>visamotionai</string>
+			</array>
+		</dict>
+	</array>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.productivity</string>
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UISceneConfigurations</key>
+		<array>
+			<dict>
+				<key>UISceneConfigurationName</key>
+				<string>Default Configuration</string>
+				<key>UISceneDelegateClassName</key>
+				<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+				<key>UISceneStoryboardFile</key>
+				<string>Main</string>
+			</dict>
+		</array>
+	</dict>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
+	</array>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>light</string>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleDefault</string>
+	<key>UIStatusBarHidden</key>
+	<false/>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+	
+	<!-- Permissions -->
+	<key>NSCameraUsageDescription</key>
+	<string>Allow VisaMOTionAi to access your camera to take photos for chat</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Allow VisaMOTionAi to access your photos to share in chat</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Allow VisaMOTionAi to save photos from chat</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Allow VisaMOTionAi to access your microphone for voice input</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Allow VisaMOTionAi to access your location for location-based services</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>This identifier will be used to deliver personalized ads to you</string>
+	
+	<!-- Notifications -->
+	<key>UIRemoteNotificationType</key>
+	<string>alert</string>
+	<string>badge</string>
+	<string>sound</string>
+	
+	<!-- App Transport Security -->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+		<key>NSAllowsArbitraryLoadsInWebContent</key>
+		<true/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>localhost</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+			<key>app.nextchat.club</key>
+			<dict>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<false/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+			<key>api.mistral.ai</key>
+			<dict>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<false/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
+	
+	<!-- Background fetch -->
+	<key>UIBackgroundFetchInterval</key>
+	<integer>86400</integer>
+	
+	<!-- iCloud -->
+	<key>NSUbiquitousContainers</key>
+	<dict>
+		<key>iCloud.com.yourcompany.visamotionai</key>
+		<dict>
+			<key>NSUbiquitousContainerIsDocumentScopePublic</key>
+			<true/>
+			<key>NSUbiquitousContainerSupportedFolderLevels</key>
+			<dict/>
+			<key>NSUbiquitousContainerName</key>
+			<string>VisaMOTionAi</string>
+		</dict>
+	</dict>
+	
+	<!-- HealthKit -->
+	<key>NSHealthShareUsageDescription</key>
+	<string>Allow VisaMOTionAi to read health data</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Allow VisaMOTionAi to write health data</string>
+	
+	<!-- Siri -->
+	<key>NSSiriUsageDescription</key>
+	<string>Allow VisaMOTionAi to use Siri for voice commands</string>
+	
+	<!-- Face ID -->
+	<key>NSFaceIDUsageDescription</key>
+	<string>Allow VisaMOTionAi to use Face ID for authentication</string>
+	
+	<!-- Apple Sign In -->
+	<key>CFBundleSignInWithApple</key>
+	<true/>
+</dict>
+</plist>

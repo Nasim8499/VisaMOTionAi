@@ -1,0 +1,51 @@
+# Dependencies
+node_modules/
+
+# React Native
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# iOS
+ios/build/
+ios/Pods/
+ios/*.xcworkspace
+ios/*.xcodeproj
+ios/*.xcarchive
+ios/Debug/
+ios/Release/
+ios/DerivedData/
+
+# Android
+android/build/
+android/app/build/
+android/*.iml
+android/*.keystore
+android/local.properties
+android/gradle.properties
+
+# Metro
+.metro-health-check*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Testing
+coverage/
+
+# TypeScript
+*.tsbuildinfo
+
+# Misc
+.DS_Store
+*.pem
+*.key
+*.mobileprovision
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
