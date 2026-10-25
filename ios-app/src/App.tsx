@@ -1,7 +1,6 @@
 import React from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { StatusBar } from 'expo-status-bar';
-import { ThemeProvider } from 'styled-components/native';
+import { StatusBar } from 'react-native';
 import AppNavigator from './navigators/AppNavigator';
 import { useTheme } from './hooks/useTheme';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -14,7 +13,7 @@ const AppWrapper: React.FC = () => {
     <SafeAreaProvider>
       <GestureHandlerRootView style={{ flex: 1 }}>
         <StatusBar
-          style={themeType === 'dark' ? 'light' : 'dark'}
+          barStyle={themeType === 'dark' ? 'light-content' : 'dark-content'}
           backgroundColor={theme.colors.background}
           translucent={false}
         />
@@ -24,23 +23,11 @@ const AppWrapper: React.FC = () => {
   );
 };
 
-// Export the app
-import { registerRootComponent } from 'expo';
-
 // For React Native CLI
 import { AppRegistry } from 'react-native';
-import { name as appName } from '../app.json';
-
-// Create a styled components theme provider
-const StyledApp: React.FC = () => {
-  return <AppWrapper />;
-};
+import { name as appName } from './app.json';
 
 // Register the app
-if (Platform.OS === 'web') {
-  // Web specific
-} else {
-  AppRegistry.registerComponent(appName, () => StyledApp);
-}
+AppRegistry.registerComponent(appName, () => AppWrapper);
 
-export default StyledApp;
+export default AppWrapper;

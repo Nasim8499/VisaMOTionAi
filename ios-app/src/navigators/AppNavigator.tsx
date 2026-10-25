@@ -2,42 +2,27 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { NavigationContainer, useNavigationContainerRef } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { View, StyleSheet, Platform, Linking } from 'react-native';
+import { View, StyleSheet, Platform, BackHandler, Alert } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTheme } from '../hooks/useTheme';
 import { RootStackParamList, MainTabParamList } from '../types';
 import SplashScreen from '../screens/SplashScreen';
-import MainScreen from '../screens/MainScreen';
+import HomeScreen from '../screens/HomeScreen';
+import ChatScreen from '../screens/ChatScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import { colors } from '../theme/colors';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { APP_CONFIG } from '../utils/config';
 import { storageService } from '../services/storage';
+import NetInfo from '@react-native-community/netinfo';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
 // Tab Icons
 const TabIcons: Record<keyof MainTabParamList, { active: string; inactive: string }> = {
-  Chat: { active: 'chat', inactive: 'chat-bubble-outline' },
-  History: { active: 'history', inactive: 'history' },
+  Home: { active: 'home', inactive: 'home' },
   Settings: { active: 'settings', inactive: 'settings' },
-};
-
-// Tab Bar Component
-const TabBar: React.FC = () => {
-  const { theme } = useTheme();
-  const insets = useSafeAreaInsets();
-
-  return (
-    <View style={[styles.tabBar, { 
-      backgroundColor: theme.colors.surface,
-      borderTopColor: theme.colors.border,
-      paddingBottom: Math.max(insets.bottom, 16),
-    }]}>
-      {/* This will be replaced by the actual tab bar */}
-    </View>
-  );
 };
 
 // Tab Navigator
@@ -46,9 +31,7 @@ const MainTabNavigator: React.FC = () => {
 
   return (
     <Tab.Navigator
-      screenOptions={({
-        route,
-      }) => ({
+      screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           const icons = TabIcons[route.name as keyof MainTabParamList];
           return (
@@ -73,17 +56,12 @@ const MainTabNavigator: React.FC = () => {
         },
         headerShown: false,
       })}
-      initialRouteName="Chat"
+      initialRouteName="Home"
     >
       <Tab.Screen
-        name="Chat"
-        component={MainScreen}
-        options={{ title: 'Chat' }}
-      />
-      <Tab.Screen
-        name="History"
-        component={MainScreen} // Placeholder, replace with actual History screen
-        options={{ title: 'History' }}
+        name="Home"
+        component={HomeScreen}
+        options={{ title: 'Chats' }}
       />
       <Tab.Screen
         name="Settings"
@@ -106,18 +84,14 @@ const useDeepLinkHandler = () => {
       // Handle deep links
       if (url.includes('chat/')) {
         const conversationId = url.split('chat/')[1];
-        navigationRef?.navigate('Main', {
-          screen: 'Chat',
-          params: { conversationId },
-        });
+        navigationRef?.navigate('Chat', { conversationId });
       } else if (url.includes('settings')) {
-        navigationRef?.navigate('Main', {
-          screen: 'Settings',
-        });
+        navigationRef?.navigate('Settings');
       }
     };
 
     // Check initial URL
+    import { Linking } from 'react-native';
     Linking.getInitialURL().then(url => {
       if (url) {
         handleDeepLink({ url });
@@ -187,18 +161,24 @@ const AppNavigator: React.FC = () => {
             />
             <Stack.Screen
               name="Chat"
-              component={MainScreen}
+              component={ChatScreen}
+              options={{
+                headerShown: false,
+                animation: 'slide_from_right',
+              }}
+            />
+            <Stack.Screen
+              name="Home"
+              component={HomeScreen}
               options={{ headerShown: false }}
             />
             <Stack.Screen
               name="Settings"
               component={SettingsScreen}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="Auth"
-              component={MainScreen} // Placeholder
-              options={{ headerShown: false }}
+              options={{
+                headerShown: false,
+                animation: 'slide_from_right',
+              }}
             />
           </>
         )}

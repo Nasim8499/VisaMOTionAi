@@ -63,21 +63,6 @@ export interface WebViewNavigationState {
   canGoForward: boolean;
 }
 
-// Navigation Types
-export type RootStackParamList = {
-  Splash: undefined;
-  Main: undefined;
-  Chat: { conversationId?: string };
-  Settings: undefined;
-  Auth: undefined;
-};
-
-export type MainTabParamList = {
-  Chat: undefined;
-  History: undefined;
-  Settings: undefined;
-};
-
 // UI Types
 export interface Theme {
   colors: {
